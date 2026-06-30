@@ -34,7 +34,7 @@ def test_week3_streamlit_app_smoke(monkeypatch) -> None:
     temp_root.mkdir(exist_ok=True)
     monkeypatch.setenv("TMP", str(temp_root))
     monkeypatch.setenv("TEMP", str(temp_root))
-    tempfile.tempdir = str(temp_root)
+    monkeypatch.setattr(tempfile, "tempdir", str(temp_root))
 
     pytest.importorskip("streamlit.testing.v1")
     from streamlit.testing.v1 import AppTest
@@ -76,7 +76,7 @@ def test_week3_streamlit_app_smoke_nondefault_model(monkeypatch) -> None:
     temp_root.mkdir(exist_ok=True)
     monkeypatch.setenv("TMP", str(temp_root))
     monkeypatch.setenv("TEMP", str(temp_root))
-    tempfile.tempdir = str(temp_root)
+    monkeypatch.setattr(tempfile, "tempdir", str(temp_root))
 
     pytest.importorskip("streamlit.testing.v1")
     from streamlit.testing.v1 import AppTest
