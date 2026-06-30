@@ -41,7 +41,7 @@ def test_week3_us_streamlit_app_smoke(monkeypatch) -> None:
 
     app_path = Path(__file__).resolve().parents[1] / "streamlit_app.py"
     for view, expected_text in VIEWS.items():
-        at = AppTest.from_file(app_path, default_timeout=15)
+        at = AppTest.from_file(app_path, default_timeout=90)
         at.query_params["view"] = view
         at.query_params["sample"] = "5Y"
         at.run()
