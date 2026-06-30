@@ -29,6 +29,11 @@ jobs:
             python -m pip install -r requirements-dev.txt
           fi
 
+      - name: Diagnostic app tests (verbose)
+        shell: bash
+        run: |
+          python -m pytest -vv -o addopts="" fins2026/week3/app/tests
+
       - name: Run deployment readiness check
         shell: bash
         run: |
